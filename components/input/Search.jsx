@@ -39,9 +39,9 @@ export default {
       this.$refs.input.blur();
     },
     getButtonOrIcon() {
-      const { prefixCls, size, disabled } = this;
+      const { prefixCls, size, disabled, $slot } = this;
       const enterButton = getComponentFromProp(this, 'enterButton');
-      const enterButtonAsElement = Array.isArray(enterButton) ? enterButton[0] : enterButton;
+      const enterButtonAsElement = Array.isArray($slot.enterButton) ? $slot.enterButton[0] : $slot.enterButton;
       let node;
       if (!enterButton) {
         node = <Icon class={`${prefixCls}-icon`} type="search" key="searchIcon" />;
